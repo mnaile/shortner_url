@@ -1,0 +1,15 @@
+
+version: '3'
+
+services:
+  db:
+    container_name: db
+    image: postgres:11
+    ports:
+      - 5432:5432 # Bind host port 5432 to PostgreSQL port 5432
+    volumes:
+      - ./postgredb:/var/lib/postgresql/data
+    env_file: .env
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - LC_ALL=C.UTF-8
